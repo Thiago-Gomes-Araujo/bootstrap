@@ -1,0 +1,25 @@
+
+    <h1 class="h3 mb-3 font-weight-normal teste" style="text-align: center"> Dados de Acesso </h1>
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+        <%= f.input :email, label: false,
+                    required: false,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" }, placeholder:"E-mail" %>
+        <%= f.input :password, label: false,
+                    required: false,
+                    input_html: { autocomplete: "current-password" }, placeholder:"Senha" %>
+        <%= f.input :remember_me, label: "Lembrar Senha ?", as: :boolean if devise_mapping.rememberable? %>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Entrar", class: 'btn btn-primary form-control' %>
+      </div>
+    <% end %>
+
+  <%= render "devise/shared/links" %>
+
+            
+
+
+
+
