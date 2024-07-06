@@ -1,15 +1,15 @@
 RAILS_MAX_THREADS=5
 PORT=3000
-DATABASE_URL=postgresql://${{ PGUSER }}:${{ PGPASSWORD }}@${{ PGHOST }}:${{ PGPORT }}/${{ PGDATABASE }}
+DATABASE_URL=postgresql://postgres:NBRZPWfLchixKlYkldxlZgheZwafYBXH@viaduct.proxy.rlwy.net:34539/railway
 LANG=en_US.UTF-8
 RACK_ENV=production
 RAILS_ENV=production
-RAILS_MASTER_KEY=7f01a068fb0746a45ef6e50aa51aa315
-REDIS_URL=redis://default:loQdCnzFcSDhFlqtGGjnASlChmKeSjks@roundhouse.proxy.rlwy.net:26760
+RAILS_MASTER_KEY=c08eb4fa45a2ec18f7f99897e5460b92
+REDIS_URL=redis://default:bqdhLAIiWmIlrTBddvbhcDdtpJktutFH@roundhouse.proxy.rlwy.net:22645
 PGDATABASE=railway
 PGHOST=viaduct.proxy.rlwy.net
-PGPASSWORD=dJTpDNtgKeedDKEedjmWYVBOYksuhOwZ
-PGPORT=33759
+PGPASSWORD=NBRZPWfLchixKlYkldxlZgheZwafYBXH
+PGPORT=34539
 PGUSER=postgres
 
 ### This whole project will be deleted later so don't try to use these as they will no longer work when this is uploaded :)
