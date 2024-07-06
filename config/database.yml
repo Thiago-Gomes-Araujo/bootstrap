@@ -21,18 +21,18 @@ default: &default
 
 production:
   <<: *default
-  host: nodmute.sao.dom.my.id
+  host: localhost
   database: opentest_db
-  username: opentest
-  password: DgHUXqe_L13_23j)x2
+  username: ruby
+  password: x
   port: 5432
 
 development:
   <<: *default
-  host: nodmute.sao.dom.my.id
+  host: localhost
   database: opentest_db
-  username: opentest
-  password: DgHUXqe_L13_23j)x2
+  username: ruby
+  password: x
   port: 5432
 
 
