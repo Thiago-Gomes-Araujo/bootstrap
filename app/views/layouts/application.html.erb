@@ -16,8 +16,13 @@
 
   <body>
     <%= render 'shared/topnavbar'%>
-    <main role="main" class="container">
+    <main class="container">
       <%= yield %>
+    <footer class="footer">
+      <p> Primeiro Site em Ruby do Thigas </p>
+      <%= "Desde de #{Time.new.year}"%>
+    </footer>
     </main>
+    
   </body>
 </html>
