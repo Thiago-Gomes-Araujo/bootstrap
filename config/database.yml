@@ -23,18 +23,18 @@ default: &default
 production:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
-  database: opentest_deploy_production
+  # database: opentest_deploy_production
+  # username: opentest
+  # password: <%= ENV['OPENTEST_DEPLOY_PASSWORD'] %>
+  # port: 5432
+
+development:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
+  database: opentest_deploy_development
   username: opentest
   password: <%= ENV['OPENTEST_DEPLOY_PASSWORD'] %>
   port: 5432
-
-# development:
-#   <<: *default
-#   host: localhost
-#   database: opentest_db
-#   username: ruby
-#   password: x
-#   port: 5432
 
 
 
