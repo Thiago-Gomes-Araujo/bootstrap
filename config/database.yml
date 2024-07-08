@@ -12,20 +12,20 @@
 # Configure Using Gemfile
 # gem "pg"
 #
-# default: &default
-#   adapter: postgresql
-#   encoding: unicode
-#   # For details on connection pooling, see Rails configuration guide
-#   # https://guides.rubyonrails.org/configuring.html#database-pooling
-#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  url: <%= ENV['DATABASE_URL'] %>
 
 production:
   <<: *default
-  url: postgresql://postgres_fcxz_user:j6QCPJtfDyk0QKvafvT2GCF4TBhuE2uY@dpg-cq5l4l88fa8c7388pt6g-a/postgres_fcxz
-  host: dpg-cq5l4l88fa8c7388pt6g-a
-  database: postgres_fcxz
-  username: postgres_fcxz_user
-  password: j6QCPJtfDyk0QKvafvT2GCF4TBhuE2uY
+  url: <%= ENV['DATABASE_URL'] %>
+  database: opentest_deploy_production
+  username: opentest
+  password: <%= ENV['OPENTEST_DEPLOY_PASSWORD'] %>
   port: 5432
 
 # development:
