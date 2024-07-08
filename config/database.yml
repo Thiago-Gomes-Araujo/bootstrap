@@ -52,20 +52,20 @@ default: &default
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
-production:
-  <<: *default
-  host: nodmute.sao.dom.my.id
-  database: opentest_db
-  username: opentest
-  password: DgHUXqe_L13_23j)x2
-  port: 5432
+# production:
+#   <<: *default
+#   host: nodmute.sao.dom.my.id
+#   database: opentest_db
+#   username: opentest
+#   password: DgHUXqe_L13_23j)x2
+#   port: 5432
 
 development:
   <<: *default
-  host: nodmute.sao.dom.my.id
+  host: localhost
   database: opentest_db
-  username: opentest
-  password: DgHUXqe_L13_23j)x2
+  username: ruby
+  password: x
   port: 5432
 
 
