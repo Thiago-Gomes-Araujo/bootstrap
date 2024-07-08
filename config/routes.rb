@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  get 'companies/new'
-  get 'companies/edit'
-  get 'companies/index'
-
+  
   resources :companies, only: [:new, :edit, :update, :create]
 
   resources :positions
