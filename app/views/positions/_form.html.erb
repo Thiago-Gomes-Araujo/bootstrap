@@ -4,8 +4,8 @@
 
   <div class="form-inputs">
     <%= f.input :name %>
-    <%= f.input :career %>
-    <%= f.input :contract %>
+    <%= f.association :career, prompt: "Choose a Category" %>
+    <%# <%= f.input :contract %>
     <%= f.input :remote %>
     <%= f.input :publish %>
     <%= f.input :city %>

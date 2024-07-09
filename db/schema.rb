@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_04_155321) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_09_040250) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -54,6 +54,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_04_155321) do
     t.index ["user_id"], name: "index_applicants_on_user_id"
   end
 
+  create_table "careers", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "companies", force: :cascade do |t|
     t.string "name"
     t.string "url"
@@ -65,8 +72,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_04_155321) do
 
   create_table "positions", force: :cascade do |t|
     t.string "name"
-    t.integer "career"
-    t.integer "contract"
     t.boolean "remote"
     t.string "city"
     t.string "state"
@@ -76,6 +81,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_04_155321) do
     t.bigint "company_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "career_id", null: false
+    t.index ["career_id"], name: "index_positions_on_career_id"
     t.index ["company_id"], name: "index_positions_on_company_id"
   end
 
@@ -96,5 +103,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_04_155321) do
   add_foreign_key "applicants", "positions"
   add_foreign_key "applicants", "users"
   add_foreign_key "companies", "users"
+  add_foreign_key "positions", "careers"
   add_foreign_key "positions", "companies"
 end

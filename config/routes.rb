@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :careers
   
   resources :companies, only: [:new, :edit, :update, :create]
 
