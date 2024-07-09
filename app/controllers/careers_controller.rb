@@ -25,7 +25,7 @@ class CareersController < ApplicationController
 
     respond_to do |format|
       if @career.save
-        format.html { redirect_to career_url(@career), notice: "Career was successfully created." }
+        format.html { redirect_to careers_path, notice: "Nova Carreira Cadastrada com Sucesso." }
         format.json { render :show, status: :created, location: @career }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class CareersController < ApplicationController
   def update
     respond_to do |format|
       if @career.update(career_params)
-        format.html { redirect_to career_url(@career), notice: "Career was successfully updated." }
+        format.html { redirect_to careers_path, notice: "Carreira Atualizada com Sucesso." }
         format.json { render :show, status: :ok, location: @career }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class CareersController < ApplicationController
     @career.destroy!
 
     respond_to do |format|
-      format.html { redirect_to careers_url, notice: "Career was successfully destroyed." }
+      format.html { redirect_to careers_url, notice: "Carreira Exluida com Sucesso." }
       format.json { head :no_content }
     end
   end

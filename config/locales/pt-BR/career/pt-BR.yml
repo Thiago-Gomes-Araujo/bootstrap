@@ -1,0 +1,10 @@
+pt-BR:
+  activerecord:
+    models:
+      career: Categoria
+      
+    attributes:
+      career:
+        name: Nome
+        career: Carreira
+        description: Descrição

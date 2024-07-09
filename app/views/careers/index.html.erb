@@ -1,14 +1,38 @@
-<p style="color: green"><%= notice %></p>
+<h1 class=" mb-3 font-weight-normal teste" style="text-align: center"> Carreiras </h1>
+<table class="table table-striped table-hover">
+  <p style="color: green"><%= notice %></p>
 
-<h1>Careers</h1>
+  <thead>
+    <tr>
+      <th scope="col"> Título </th>
+      <th scope="col"> Descrição </th>
+      <th scope="col"> Ações </th>
+    </tr>
+  </thead>
+  <tbody>
+    <div id="careers">
+      <% @careers.each do |career| %>
+        <%# <%= render career %> 
+        <p>
 
-<div id="careers">
-  <% @careers.each do |career| %>
-    <%= render career %>
-    <p>
-      <%= link_to "Show this career", career %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New career", new_career_path %>
+        <tr>
+          <td> <%= career.name %> </td>
+          <td> <%= career.description %> </td>
+          <td> 
+            <div class = "row align-items-start col-12">
+              <div class="col-4">
+                <%= link_to "Editar", edit_career_path(career), class: 'btn btn-secondary' %>
+              </div>
+              <div class="col-4 mb-3 font-weight-normal">
+                <%= button_to "Excluir", career, class: "btn btn-danger",
+                data: { confirm: "Tem Certeza ?", turbo_confirm: "Tem Certeza ?"}, method: :delete %>
+              </div>
+            </div>
+          </td>
+        </tr>
+        </p>
+      <% end %>
+    </div>
+  </tbody>
+</table>
+<%= link_to "New career", new_career_path, class: 'btn btn-success' %>
