@@ -4,14 +4,8 @@ pt-BR:
       position: Vagas
     attributes:
       position:
-        name: Nome da Empresa
-        career: Carreira
-        careers:
-          developer: Desenvolvedor
-          business_intelligence: Business Intelligence
-          design: Design
-          technology: Tecnologia
-          other: Outras
+        name: Nome da Vaga
+        career: Categoria
         contract: Tipo de Contrato
         contracts:
           clt: CLT
