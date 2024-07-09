@@ -6,8 +6,7 @@
     <%= f.input :name %>
     <%= f.association :career, prompt: "Escolha uma Categoria" %>
     <%= f.association :contract, prompt: "Escolha um Tipo de Contrato" %>
-    <%# <%= f.input :contract %>
-    <%= f.input :remote %>
+    <%= f.association :type_vacancy, prompt: "Escolha um Tipo de Vaga" %>
     <%= f.input :publish %>
     <%= f.input :city %>
     <%= f.input :state %>

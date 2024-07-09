@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   
   resources :companies, only: [:new, :edit, :update, :create]
 
-  resources :positions
+  resources :positions , only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
   resources :applicants, only: [:index, :new, :create]
 
