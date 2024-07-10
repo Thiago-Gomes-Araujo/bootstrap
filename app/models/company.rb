@@ -1,7 +1,7 @@
 class Company < ApplicationRecord
-    belongs_to :user
-    has_many :positions
-    has_one_attached :logo
+    belongs_to :user, dependent: :destroy
+    has_many :positions, dependent: :destroy
+    has_one_attached :logo, dependent: :destroy
 
     validates :name, presence: true
     validates :url, presence: true
