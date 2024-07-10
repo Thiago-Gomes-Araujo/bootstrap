@@ -7,11 +7,7 @@ pt-BR:
         name: Nome da Vaga
         career: Categoria
         contract: Tipo de Contrato
-        contracts:
-          clt: CLT
-          pj: PJ
-          match: A combinar
-        remote:  Esta Vaga é Remota?
+        type_vacancy: Tipo de Vaga
         publish: Está Vaga é Pública?
         city: Cidade
         state: Estado

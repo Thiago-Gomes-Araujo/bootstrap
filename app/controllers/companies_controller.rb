@@ -1,4 +1,5 @@
 class CompaniesController < ApplicationController
+
   def new
     @company = current_user.build_company
   end
@@ -14,6 +15,17 @@ class CompaniesController < ApplicationController
         f.html { redirect_to root_path, notice: "Empresa Cadastrada com Sucesso" }
       else
         f.html { render :new, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def update
+    @company = current_user.company
+    respond_to do |f|
+      if @company.update(company_params)
+        f.html { redirect_to root_path, notice: "Empresa Cadastrada com Sucesso" }
+      else
+        f.html { render :edit, status: :unprocessable_entity }
       end
     end
   end
