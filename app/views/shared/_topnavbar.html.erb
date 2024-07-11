@@ -21,7 +21,12 @@
             <li class=" nav-item" >
               <%= link_to "Publicar Vagas", new_position_path, class: "nav-link btn btn-secondary" %>
             </li>
-            
+          <% end %>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item dropdown">
+          <% if user_signed_in?%>
             <div class="dropdown">
               <button class="nav-link btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <%= current_user.email %>
@@ -32,9 +37,6 @@
                 <%= button_to 'Sair', destroy_user_session_path, method: :delete, class: 'dropdown-item'%>
               </ul>
             </div>
-            <%# <li class=" nav-item" >
-              <%= link_to "Publicar Vagas", new_position_path, class: "nav-link btn btn-secondary" %>
-            <%# </li> %>
             <%else%>
               <%= link_to "Login/Cadastro", user_session_path, class: "nav-link" %>
           <% end %>
