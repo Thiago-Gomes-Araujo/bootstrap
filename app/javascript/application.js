@@ -1,7 +1,13 @@
-// Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
-import "@hotwired/turbo-rails"
-import "controllers"
-import * as bootstrap from "bootstrap"
+$(document).ready(function() {
+  $('.text_summary').on('input', function() {
+    var currentLength = $(this).val().length;
+    $('#current').text(currentLength);
 
-import "trix"
-import "@rails/actiontext"
+    // Adicionar a classe 'text-danger' se exceder o limite
+    if (currentLength > maxLength) {
+      $('#current').addClass('text-danger');
+    } else {
+      $('#current').removeClass('text-danger');
+    }
+  });
+});

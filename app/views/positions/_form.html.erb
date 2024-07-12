@@ -10,10 +10,10 @@
     <%= f.input :publish %>
     <%= f.input :city %>
     <%= f.input :state %>
-    <%= f.text_area :summary, label:'fdfdfg', maxlength: 10, class: "text_summary" %>
+    <%= f.text_area :summary, maxlength: 250, class: "text_summary" %>
     <div class="span_summary">
       <span id="current">0</span>
-      <span id="maximum">/ 100</span>
+      <span id="maximum">/ 250</span>
     </div>
     <%= f.rich_text_area :description %>     
   </div>
@@ -21,4 +21,3 @@
     <%= f.button :submit, class:"btn btn-success" %>
   </div>
 <% end %>
-

@@ -8,6 +8,6 @@ class Position < ApplicationRecord
   validates :career, presence: true
   validates :contract, presence: true
   validates :type_vacancy, presence: true
-  validates :summary, length: { maximum: 100 }
+  validates :summary, length: { maximum: 250 }
 
 end
