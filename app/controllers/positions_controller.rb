@@ -3,8 +3,9 @@ class PositionsController < ApplicationController
   before_action :set_position, only: [:show, :edit, :update, :destroy]  # Adiciona set_position para show, edit, update, destroy
 
   def index
-    @positions = @company.positions
-    @q = @positions.ransack(params[:q])
+    @q = @company.positions.includes(:career, :contract, :type_vacancy, :state).ransack(params[:q])
+    @pagy, @positions = pagy(Position.where(company_id: current_user.company.id).joins(:contract).merge(Contract.where("contracts.name ILIKE ?", "%#{params[:q][:contract_name_cont]}%")))
+    #@pagy, @positions = pagy(@q.result(distinct: true))
     #@positions = @q.result.includes(:articles).page(params[:page])
   end
 

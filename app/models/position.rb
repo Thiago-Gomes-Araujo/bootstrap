@@ -1,7 +1,11 @@
 class Position < ApplicationRecord
 
+  def self.ransackable_associations(auth_object = nil)
+    ["career", "company", "contract", "type_vacancy", "state"]
+  end
+
   def self.ransackable_attributes(auth_object = nil)
-    %w[id name ]   # Substitua com os atributos que deseja permitir a pesquisa
+    ["name", "city", "summary", "publish"]
   end
 
   belongs_to :company

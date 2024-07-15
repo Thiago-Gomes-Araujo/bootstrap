@@ -2,13 +2,21 @@
 
 <%= search_form_for @q do |f| %>
   <div class="field">
-    <%= f.label :name_cont, "Search by Name:" %>
-    <%= f.text_field :name_cont %>
+    <%= f.label :name_cont, "Buscar por Nome de Vaga" %>
+    <%= f.search_field :name_cont %>
   </div>
-  <%= f.submit "Search", class: "btn btn-primary" %>
+  <div class="field">
+    <%= f.label :career_name_cont, "Buscar por Nome de Carreira" %>
+    <%= f.search_field :career_name_cont %>
+  </div>
+  <div class="field">
+    <%= f.label :contract_name_cont, "Buscar por Tipo de Contrato" %>
+    <%= f.search_field :contract_name_cont %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Buscar" %>
+  </div>
 <% end %>
-
-
 
 <table class="table table-striped table-hover">
   <p style="color: green"><%= notice %></p>
@@ -46,4 +54,5 @@
     <% end %>
   </tbody>
 </table>
+<%= render 'shared/pagination' %>
 <%= link_to "Nova Vaga", new_position_path, class: 'btn btn-success' %>

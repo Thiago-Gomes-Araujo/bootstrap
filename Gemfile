@@ -78,3 +78,7 @@ gem "awesome_print"
 gem "rspec-rails"
 gem "rails-i18n"
 gem "ransack", "~> 4.2"
+
+gem "faker", "~> 3.4"
+
+gem 'pagy'
