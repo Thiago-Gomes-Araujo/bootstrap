@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_10_161612) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_15_011405) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -90,7 +90,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_10_161612) do
   create_table "positions", force: :cascade do |t|
     t.string "name"
     t.string "city"
-    t.string "state"
     t.text "summary"
     t.boolean "publish"
     t.bigint "company_id", null: false
@@ -99,10 +98,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_10_161612) do
     t.bigint "career_id", null: false
     t.bigint "contract_id", null: false
     t.bigint "type_vacancy_id", null: false
+    t.bigint "state_id", null: false
     t.index ["career_id"], name: "index_positions_on_career_id"
     t.index ["company_id"], name: "index_positions_on_company_id"
     t.index ["contract_id"], name: "index_positions_on_contract_id"
+    t.index ["state_id"], name: "index_positions_on_state_id"
     t.index ["type_vacancy_id"], name: "index_positions_on_type_vacancy_id"
+  end
+
+  create_table "states", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "type_vacancies", force: :cascade do |t|
@@ -131,5 +138,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_10_161612) do
   add_foreign_key "positions", "careers"
   add_foreign_key "positions", "companies"
   add_foreign_key "positions", "contracts"
+  add_foreign_key "positions", "states"
   add_foreign_key "positions", "type_vacancies"
 end

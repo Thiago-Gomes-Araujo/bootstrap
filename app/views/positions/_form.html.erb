@@ -9,7 +9,8 @@
     <%= f.association :type_vacancy, prompt: "Escolha um Tipo de Vaga" %>
     <%= f.input :publish %>
     <%= f.input :city %>
-    <%= f.input :state %>
+    <%= f.association :state.name, prompt: "Escolha um  Estado" %>
+    <%# <%= f.input :state %>
     <%= f.text_area :summary, maxlength: 250, class: "text_summary" %>
     <div class="span_summary">
       <span id="current">0</span>
