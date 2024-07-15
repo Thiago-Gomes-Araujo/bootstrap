@@ -4,8 +4,13 @@ class PositionsController < ApplicationController
 
   def index
     @q = @company.positions.includes(:career, :contract, :type_vacancy, :state).ransack(params[:q])
-    @pagy, @positions = pagy(Position.where(company_id: current_user.company.id).joins(:contract).merge(Contract.where("contracts.name ILIKE ?", "%#{params[:q][:contract_name_cont]}%")))
-    #@pagy, @positions = pagy(@q.result(distinct: true))
+    
+    if params[:q].present? && params[:q][:contract_name_cont].present?
+      @pagy, @positions = pagy(Position.where(company_id: current_user.company.id).joins(:contract).merge(Contract.where("contracts.name ILIKE ?", "%#{params[:q][:contract_name_cont]}%")))
+    else
+      @pagy, @positions = pagy(@q.result(distinct: true))
+    end
+    
     #@positions = @q.result.includes(:articles).page(params[:page])
   end
 
@@ -19,13 +24,13 @@ class PositionsController < ApplicationController
   def create
     @position = @company.positions.create(position_params)
 
-    respond_to do |format|
+    respond_to do |f|
       if @position.save
-        format.html { redirect_to positions_path, notice: "Nova Vaga Cadastrada com Sucesso." }
-        format.json { render :index, status: :created, location: @position }
+        f.html { redirect_to positions_path, notice: "Nova Vaga Cadastrada com Sucesso." }
+        f.json { render :index, status: :created, location: @position }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @position.errors, status: :unprocessable_entity }
+        f.html { render :new, status: :unprocessable_entity }
+        f.json { render json: @position.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -33,22 +38,22 @@ class PositionsController < ApplicationController
   def destroy
     @position.destroy!
 
-    respond_to do |format|
-      format.html { redirect_to positions_path, notice: "Vaga Exluida com Sucesso." }
-      format.json { head :no_content }
+    respond_to do |f|
+      f.html { redirect_to positions_path, notice: "Vaga Exluida com Sucesso." }
+      f.json { head :no_content }
     end
   end
 
 
     
   def update
-    respond_to do |format|
+    respond_to do |f|
       if @position.update(position_params)
-        format.html { redirect_to positions_path, notice: "Vaga atualizada com sucesso." }
-        format.json { render :show, status: :ok, location: @position }
+        f.html { redirect_to positions_path, notice: "Vaga atualizada com sucesso." }
+        f.json { render :show, status: :ok, location: @position }
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @position.errors, status: :unprocessable_entity }
+        f.html { render :edit, status: :unprocessable_entity }
+        f.json { render json: @position.errors, status: :unprocessable_entity }
       end
     end
   end
