@@ -5,7 +5,6 @@ class PositionsController < ApplicationController
   def index
     @positions = @company.positions
     @q = @positions.ransack(params[:q])
-    @positions = @q.result
     #@positions = @q.result.includes(:articles).page(params[:page])
   end
 
