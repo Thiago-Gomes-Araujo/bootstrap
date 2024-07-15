@@ -6,7 +6,6 @@ class CreatePositions < ActiveRecord::Migration[7.1]
       t.integer :contract
       t.boolean :remote
       t.string :city
-      t.string :state
       t.text :summary
       t.text :description
       t.boolean :publish
