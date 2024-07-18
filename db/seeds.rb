@@ -34,10 +34,18 @@ TypeVacancy.delete_all
   end
   
   # Criar tipos de vagas fictícias
-  type_vacancies = 15.times.map do
-    TypeVacancy.create!(
-      name: Faker::Job.position
-    )
+  # type_vacancies = 15.times.map do
+  #   TypeVacancy.create!(
+  #     name: Faker::Job.position
+  #   )
+  # end
+
+  type_vacancies = [
+    { name: 'REMOTO'},
+    { name: 'PRESENCIAL'},
+    { name: 'HIBRIDO'}
+  ].map do |type_vacancy_attributes|
+    TypeVacancy.create!(type_vacancy_attributes)
   end
 
   # Criar estados fictícios
